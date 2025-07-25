@@ -3,8 +3,8 @@
     grid-template-columns: repeat(3, minmax(0, 338px));
     justify-content: center;
     width: 100%;
-    gap: 10px;
-    max-width: 1034px;
+    gap: 16px;
+    max-width: 1046px;
     margin: 0 auto;
 }
 

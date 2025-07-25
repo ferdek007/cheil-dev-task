@@ -24,20 +24,22 @@ export const App = () => {
   };
 
   return (
-    <div className="app-container">
+    <div className='app-container'>
       <Header />
-      <SearchBar search={search} setSearch={setSearch} />
-      <FiltersBar filters={filters} setFilters={setFilters} />
+      <div className='content-container'>
+        <SearchBar search={search} setSearch={setSearch} />
+        <FiltersBar filters={filters} setFilters={setFilters} />
 
-      <div className="products-count">
-        <p>Liczba wyników: {filteredProducts.length}</p>
+        <div className='products-count'>
+          <p>Liczba wyników: {filteredProducts.length}</p>
+        </div>
+
+        <Feed
+          products={filteredProducts}
+          selectedProducts={selectedProducts}
+          toggleSelect={toggleSelect}
+        />
       </div>
-
-      <Feed
-        products={filteredProducts}
-        selectedProducts={selectedProducts}
-        toggleSelect={toggleSelect}
-      />
     </div>
   )
 }
