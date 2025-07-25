@@ -1,15 +1,24 @@
 import { useState } from 'react'
-import { Header } from './components/Header/Header'
+import productsData from './data/products.json'
+import { type Product } from './types/types'
 import './App.css'
+import { Header } from './components/Header/Header'
+import { SearchBar } from './components/SearchBar/SearchBar'
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+  const [search, setSearch] = useState('')
+  const [filters, setFilters] = useState({
+    sortBy: 'all',
+    functions: 'all',
+    energyClass: 'all',
+    volume: 'all',
+  })
+  const [selectedProducts, setSelectedProducts] = useState<number[]>([])
 
   return (
     <>
       <Header />
+      <SearchBar search={search} setSearch={setSearch} />
     </>
   )
 }
-
-export default App

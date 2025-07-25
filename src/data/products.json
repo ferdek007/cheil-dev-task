@@ -22,7 +22,7 @@
             "rate": 53.31,
             "amount": 60
         },
-        "image": "/images/washer1.jpg"
+        "image": "/images/washer1.png"
     },
     {
         "id": 2,
@@ -47,7 +47,7 @@
             "rate": 53.31,
             "amount": 60
         },
-        "image": "/images/washer2.jpg"
+        "image": "/images/washer2.png"
     },
     {
         "id": 3,
@@ -72,7 +72,7 @@
             "rate": 53.31,
             "amount": 60
         },
-        "image": "/images/washer2.jpg"
+        "image": "/images/washer2.png"
     },
     {
         "id": 4,
@@ -97,7 +97,7 @@
             "rate": 53.31,
             "amount": 60
         },
-        "image": "/images/washer1.jpg"
+        "image": "/images/washer1.png"
     },
     {
         "id": 5,
@@ -122,7 +122,7 @@
             "rate": 53.31,
             "amount": 60
         },
-        "image": "/images/washer2.jpg"
+        "image": "/images/washer2.png"
     },
     {
         "id": 6,
@@ -147,6 +147,6 @@
             "rate": 53.31,
             "amount": 60
         },
-        "image": "/images/washer3.jpg"
+        "image": "/images/washer3.png"
     }
 ]
