@@ -1,0 +1,23 @@
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 338px));
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    max-width: 1034px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 338px);
+        /* 2 on medium screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: 338px;
+        /* 1 on small screens */
+    }
+}

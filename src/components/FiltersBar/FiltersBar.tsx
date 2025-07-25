@@ -32,7 +32,7 @@ const FILTER_OPTIONS = {
 
 export const FiltersBar = ({ filters, setFilters }: Props) => {
     return (
-        <div className="filters-container">
+        <div className="filters-bar-container">
             <div>
                 <label htmlFor='sort-by-select'>Sortuj po:</label>
                 <br />
@@ -93,5 +93,5 @@ export const FiltersBar = ({ filters, setFilters }: Props) => {
                 </select>
             </div>
         </div >
-    );
-};
+    )
+}

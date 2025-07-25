@@ -10,7 +10,7 @@ export interface Product {
         height_cm: number;
         length_cm: number;
     };
-    energyClass: 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
+    energyClass: string;
     addWashDoor: boolean;
     panelAIControl: boolean;
     inverterDutyMotor: boolean;
