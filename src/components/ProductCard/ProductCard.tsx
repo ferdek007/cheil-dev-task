@@ -10,7 +10,7 @@ interface Props {
 export const ProductCard = ({ product, selected, toggleSelect }: Props) => {
     return (
         <div className={`product-card ${selected ? 'selected' : ''}`}>
-            <img src={product.image} alt={product.code} className="product-image" />
+            <img src={product.image} alt={product.code} className='product-image' />
             <div className='text-wrapper'>
                 <h3>{product.code}, {product.name}, {product.volume_kg} kg, {product.colour}</h3>
                 <p>{'Pojemność (kg): '} {product.volume_kg}</p>

@@ -10,7 +10,7 @@ interface FeedProps {
 
 export const Feed = ({ products, selectedProducts, toggleSelect }: FeedProps) => {
     return (
-        <div className="products-grid">
+        <div className='products-grid'>
             {products.map((product) => (
                 <ProductCard
                     key={product.id}

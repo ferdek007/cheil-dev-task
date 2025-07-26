@@ -8,9 +8,9 @@ interface Props {
 export const SearchBar = ({ search, setSearch }: Props) => {
     return (
         <input
-            className="search-input"
-            type="text"
-            placeholder="Szukaj..."
+            className='search-input'
+            type='text'
+            placeholder='Szukaj...'
             value={search}
             onChange={(e) => setSearch(e.target.value)}
         />

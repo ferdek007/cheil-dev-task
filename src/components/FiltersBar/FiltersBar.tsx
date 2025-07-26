@@ -32,8 +32,8 @@ const FILTER_OPTIONS = {
 
 export const FiltersBar = ({ filters, setFilters }: Props) => {
     return (
-        <div className="filters-bar-container">
-            <div>
+        <div className='filters-bar-container'>
+            <div className='filter-wrapper'>
                 <label htmlFor='sort-by-select'>Sortuj po:</label>
                 <br />
                 <select id='sort-by-select'
@@ -48,7 +48,7 @@ export const FiltersBar = ({ filters, setFilters }: Props) => {
                 </select>
             </div>
 
-            <div>
+            <div className='filter-wrapper'>
                 <label htmlFor='functions-select'>Funkcje:</label>
                 <br />
                 <select id='functions-select'
@@ -63,7 +63,7 @@ export const FiltersBar = ({ filters, setFilters }: Props) => {
                 </select>
             </div>
 
-            <div>
+            <div className='filter-wrapper'>
                 <label htmlFor='energy-class-select'>Klasa energetyczna:</label>
                 <br />
                 <select id='energy-class-select'
@@ -78,7 +78,7 @@ export const FiltersBar = ({ filters, setFilters }: Props) => {
                 </select>
             </div>
 
-            <div>
+            <div className='filter-wrapper'>
                 <label htmlFor='volume-select'>Pojemność:</label>
                 <br />
                 <select id='volume-select'

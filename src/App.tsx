@@ -6,7 +6,7 @@ import { FiltersBar } from './components/FiltersBar/FiltersBar'
 import { Feed } from './components/Feed/Feed'
 
 export const App = () => {
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState<string>('')
   const [filters, setFilters] = useState({
     sortBy: 'Wszystkie',
     functions: 'Wszystkie',
