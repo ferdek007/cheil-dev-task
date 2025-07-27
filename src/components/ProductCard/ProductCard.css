@@ -1,6 +1,9 @@
 .product-card {
     background-color: #ffffff;
-    /* border: 2px solid #e0e0e0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 20px;
     padding: 25px 24px;
     max-width: 338px;
@@ -15,42 +18,217 @@
     text-align: left;
 }
 
-.product-card.selected {
+/* .product-card.selected {
+    border: 2px solid #007bff;
     border-color: #007bff;
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
-}
+} */
 
 .product-image {
     width: 200px;
     height: 200px;
-    object-fit: contain;
-    margin-bottom: 12px;
+    object-fit: cover;
 }
 
 .product-card h3 {
     font-size: 18px;
     line-height: 22px;
     font-weight: 700;
-    margin-bottom: 4px;
+    height: 73px;
+    margin-top: 8px;
+}
+
+.description-wrapper {
+    margin-top: 5px;
+    height: 71px;
 }
 
 .product-card p {
+    font-size: 12px;
+    color: #767676;
+    line-height: 18px;
+    letter-spacing: 0;
+}
+
+.text-bold {
+    font-weight: 700;
+    color: #000;
+}
+
+.energy-class-wrapper {
+    margin: 17px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.energy-flag-container {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.energy-flag {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 18px;
+    /* Total width will be 43px + 6px triangle = 49px */
+    width: 43px;
+    padding: 0 0 0 6px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.energy-flag-triangle {
+    position: absolute;
+    right: -6px;
+    /* Triangle extends 6px right of container */
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    /* Half of 18px height */
+    border-bottom: 9px solid transparent;
+    /* Half of 18px height */
+    border-left: 6px solid;
+}
+
+.price-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.price-wrapper h2 {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+
+.price-fractional-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1;
+    margin-left: 2px;
+    width: 19px;
+    height: 31px;
+}
+
+.price-decimals,
+.price-currency {
     font-size: 14px;
-    color: #555;
-    margin: 2px 0;
+    line-height: 16px;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+
+/* Color schemes */
+.energy-a {
+    background-color: #009949;
+    /* Dark Green */
+    color: white;
+}
+
+.energy-a .energy-flag-triangle {
+    border-left-color: #009949;
+}
+
+.energy-b {
+    background-color: #52AE32;
+    /* Green */
+    color: white;
+}
+
+.energy-b .energy-flag-triangle {
+    border-left-color: #52AE32;
+}
+
+.energy-c {
+    background-color: #C8D400;
+    /* Light Green */
+    color: white;
+}
+
+.energy-c .energy-flag-triangle {
+    border-left-color: #C8D400;
+}
+
+.energy-d {
+    background-color: #FFED00;
+    /* Yellow */
+    color: #333;
+}
+
+.energy-d .energy-flag-triangle {
+    border-left-color: #FFED00;
+}
+
+.energy-e {
+    background-color: #FBBA00;
+    /* Orange */
+    color: white;
+}
+
+.energy-e .energy-flag-triangle {
+    border-left-color: #FBBA00;
+}
+
+.energy-f {
+    background-color: #EC6608;
+    /* Dark Orange */
+    color: white;
+}
+
+.energy-f .energy-flag-triangle {
+    border-left-color: #EC6608;
+}
+
+.energy-na {
+    background-color: #9E9E9E;
+    /* Gray */
+    color: white;
+}
+
+.energy-na .energy-flag-triangle {
+    border-left-color: #9E9E9E;
+}
+
+.instalments-label {
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0;
+    font-weight: 700;
+    margin: 10px 0px;
 }
 
 .product-card button {
     margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
+    padding: 14px 40px;
+    background-color: #1428A0;
+    width: 150px;
+    height: 36px;
+    color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 24px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.product-card button:hover {
-    background-color: #0056b3;
+.product-select-button:hover {
+    background-color: #1a34d0;
+}
+
+.product-select-button.selected {
+    background-color: #1C1C1C;
 }
