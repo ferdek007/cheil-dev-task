@@ -64,7 +64,7 @@ export const ProductCard = ({ product, selected, toggleSelect }: Props) => {
                 </div>
                 <p>{`Cena obowiązuje: ${product.priceStart ?? 'N/A'} - ${product.priceEnd ?? 'N/A'}`}</p>
                 <div className='price-wrapper'>
-                    <h2>{product.price_pln ? product.price_pln.toFixed(0) : 'N/A'}</h2>
+                    <h2>{product.price_pln ? Math.floor(product.price_pln) : 'N/A'}</h2>
                     <div className='price-fractional-container'>
                         <span className='price-decimals'>
                             {product.price_pln ? (product.price_pln % 1).toFixed(2).slice(2) : '00'}

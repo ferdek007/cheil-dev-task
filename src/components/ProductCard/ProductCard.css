@@ -130,7 +130,7 @@
 .energy-a {
     background-color: #009949;
     /* Dark Green */
-    color: white;
+    color: #fff;
 }
 
 .energy-a .energy-flag-triangle {
@@ -140,7 +140,7 @@
 .energy-b {
     background-color: #52AE32;
     /* Green */
-    color: white;
+    color: #fff;
 }
 
 .energy-b .energy-flag-triangle {
@@ -150,7 +150,7 @@
 .energy-c {
     background-color: #C8D400;
     /* Light Green */
-    color: white;
+    color: #fff;
 }
 
 .energy-c .energy-flag-triangle {
@@ -170,7 +170,7 @@
 .energy-e {
     background-color: #FBBA00;
     /* Orange */
-    color: white;
+    color: #fff;
 }
 
 .energy-e .energy-flag-triangle {
@@ -180,7 +180,7 @@
 .energy-f {
     background-color: #EC6608;
     /* Dark Orange */
-    color: white;
+    color: #fff;
 }
 
 .energy-f .energy-flag-triangle {
@@ -190,7 +190,7 @@
 .energy-na {
     background-color: #9E9E9E;
     /* Gray */
-    color: white;
+    color: #fff;
 }
 
 .energy-na .energy-flag-triangle {
