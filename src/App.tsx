@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import productsData from './data/products.json'
 import { Header } from './components/Header/Header'
 import { SearchBar } from './components/SearchBar/SearchBar'
@@ -11,7 +11,7 @@ const FUNCTION_PROPERTY_MAP: Record<string, keyof Product> = {
   'Panel AI Control': 'panelAIControl',
   'Silnik inwerterowy': 'inverterDutyMotor',
   'Wyświetlacz elektroniczny': 'electronicDisplay'
-};
+}
 
 export const App = () => {
   const [search, setSearch] = useState<string>('')
@@ -23,37 +23,43 @@ export const App = () => {
   })
   const [selectedProducts, setSelectedProducts] = useState<number[]>([])
 
-  const filteredProducts = productsData
-    .filter((product: Product) => {
-      const searchString = `${product.code}, ${product.name}, ${product.volume_kg} kg, ${product.colour}`;
-      return searchString.toLowerCase().includes(search.toLowerCase());
-    })
-    .filter((product) => {
-      if (filters.functions !== 'Wszystkie') {
-        const property = FUNCTION_PROPERTY_MAP[filters.functions];
-        return product[property];
-      }
-      return true;
-    })
-    .filter((product) =>
-      filters.energyClass === 'Wszystkie'
-        ? true
-        : product.energyClass === filters.energyClass
-    )
-    .filter((product) =>
-      filters.volume === 'Wszystkie'
-        ? true
-        : product.volume_kg.toString() === filters.volume.replace('kg', '')
-    )
-    .sort((a, b) => {
-      if (filters.sortBy === 'Cena') return a.price_pln - b.price_pln;
-      if (filters.sortBy === 'Pojemność') return a.volume_kg - b.volume_kg;
-      return 0;
-    })
+  const filteredProducts = useMemo(() => {
+    // Filtering logic
+    const filtered = productsData.filter((product) => {
+      const matchesSearch = `${product.code} ${product.name} ${product.volume_kg} kg ${product.colour}`
+        .toLowerCase()
+        .includes(search.toLowerCase());
 
-  const toggleSelect = (id: number) => {
-    setSelectedProducts(prev =>
-      prev.includes(id) ? prev.filter(pid => pid !== id) : [...prev, id]
+      const matchesFunction = filters.functions === 'Wszystkie' ||
+        product[FUNCTION_PROPERTY_MAP[filters.functions]];
+
+      const matchesEnergy = filters.energyClass === 'Wszystkie' ||
+        product.energyClass === filters.energyClass;
+
+      const matchesVolume = filters.volume === 'Wszystkie' ||
+        product.volume_kg === parseFloat(filters.volume.replace('kg', ''));
+
+      return matchesSearch && matchesFunction && matchesEnergy && matchesVolume;
+    });
+
+    // Sorting logic
+    switch (filters.sortBy) {
+      case 'Cena rosnąco':
+        return [...filtered].sort((a, b) => a.price_pln - b.price_pln)
+      case 'Cena malejąco':
+        return [...filtered].sort((a, b) => b.price_pln - a.price_pln)
+      case 'Pojemność rosnąco':
+        return [...filtered].sort((a, b) => a.volume_kg - b.volume_kg)
+      case 'Pojemność malejąco':
+        return [...filtered].sort((a, b) => b.volume_kg - a.volume_kg)
+      default:
+        return filtered // No sorting
+    }
+  }, [search, filters, productsData]);
+
+  const toggleSelect = (productId: number) => {
+    setSelectedProducts(prevSelectedIds =>
+      prevSelectedIds.includes(productId) ? prevSelectedIds.filter(id => id !== productId) : [...prevSelectedIds, productId]
     )
   }
 

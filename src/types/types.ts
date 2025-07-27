@@ -24,11 +24,28 @@ export interface Product {
     image: string;
 }
 
-export type FilterKey = 'sortBy' | 'functions' | 'energyClass' | 'volume';
+export type FilterKey = 'sortBy' | 'functions' | 'energyClass' | 'volume'
+
+export type SortOption =
+    | 'Wszystkie'
+    | 'Cena rosnąco'
+    | 'Cena malejąco'
+    | 'Pojemność rosnąco'
+    | 'Pojemność malejąco'
+
+export type FunctionOption =
+    | 'Wszystkie'
+    | 'Drzwi AddWash'
+    | 'Panel AI Control'
+    | 'Silnik inwerterowy'
+    | 'Wyświetlacz elektroniczny'
+
+export type EnergyClassOption = 'Wszystkie' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
+export type VolumeOption = 'Wszystkie' | '8kg' | '9kg' | '10.5kg'
 
 export interface Filters {
-    sortBy: string;
-    functions: string;
-    energyClass: string;
-    volume: string;
+    sortBy: SortOption;
+    functions: FunctionOption;
+    energyClass: EnergyClassOption;
+    volume: VolumeOption;
 }

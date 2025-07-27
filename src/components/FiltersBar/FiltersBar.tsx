@@ -2,16 +2,22 @@ import './FiltersBar.css'
 import type { Filters, FilterKey } from '../../types/types'
 
 const FILTER_OPTIONS = {
-    sortBy: ['Wszystkie', 'Cena', 'Pojemność'],
+    sortBy: [
+        'Wszystkie',
+        'Cena rosnąco',
+        'Cena malejąco',
+        'Pojemność rosnąco',
+        'Pojemność malejąco'
+    ] as const,
     functions: [
         'Wszystkie',
         'Drzwi AddWash',
         'Panel AI Control',
         'Silnik inwerterowy',
         'Wyświetlacz elektroniczny',
-    ],
-    energyClass: ['Wszystkie', 'A', 'B', 'C', 'D', 'E', 'F'],
-    volume: ['Wszystkie', '8kg', '9kg', '10.5kg'],
+    ] as const,
+    energyClass: ['Wszystkie', 'A', 'B', 'C', 'D', 'E', 'F'] as const,
+    volume: ['Wszystkie', '8kg', '9kg', '10.5kg'] as const,
 }
 
 interface Props {
@@ -51,9 +57,9 @@ export const FiltersBar = ({ filters, setFilters }: Props) => {
                         value={filters[filterKey]}
                         onChange={handleFilterChange(filterKey)}
                     >
-                        {FILTER_OPTIONS[filterKey].map(opt => (
-                            <option key={opt} value={opt}>
-                                {opt}
+                        {FILTER_OPTIONS[filterKey].map(option => (
+                            <option key={option} value={option}>
+                                {option}
                             </option>
                         ))}
                     </select>
