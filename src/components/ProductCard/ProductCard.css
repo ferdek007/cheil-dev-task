@@ -198,15 +198,15 @@
 }
 
 .instalments-label {
+    display: inline-block;
     font-size: 16px;
     line-height: 18px;
     letter-spacing: 0;
     font-weight: 700;
-    margin: 10px 0px;
+    margin: 17px 0px;
 }
 
 .product-card button {
-    margin-top: 10px;
     padding: 14px 40px;
     background-color: #1428A0;
     width: 150px;

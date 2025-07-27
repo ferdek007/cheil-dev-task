@@ -72,11 +72,11 @@ export const ProductCard = ({ product, selected, toggleSelect }: Props) => {
                         <span className='price-currency'>zł</span>
                     </div>
                 </div>
-                <p className='instalments-label'>
+                <span className='instalments-label'>
                     {product.instalments ?
                         `${product.instalments.rate ?? 'N/A'} zł x ${product.instalments.amount ?? 'N/A'} rat` : 'N/A'
                     }
-                </p>
+                </span>
             </div>
             <button
                 onClick={() => toggleSelect(product.id)}
