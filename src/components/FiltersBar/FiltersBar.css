@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    position: relative;
 }
 
 .filters-bar-container label {
@@ -19,26 +20,91 @@
     letter-spacing: 0;
 }
 
-.filters-bar-container select {
+/* Custom Select Styles */
+.custom-select {
+    position: relative;
+    width: 249px;
+}
+
+.custom-select__trigger {
     background-color: #ffffff;
     padding: 8px 12px;
     font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0;
     border: none;
     width: 249px;
     height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
+
+.custom-select__trigger:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.custom-select__trigger::after {
+    content: "▼";
+    font-size: 13px;
+    color: #8D8D8D;
+    transition: transform 0.3s ease;
+}
+
+.custom-select.active .custom-select__trigger::after {
+    transform: rotate(180deg);
+}
+
+.custom-options {
+    position: absolute;
+    top: 100%;
+    margin-top: 4px;
+    left: 0;
+    right: 0;
+    background: #FDFDFD;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.02);
+    z-index: 10;
+    max-height: 320px;
+    overflow-y: auto;
+    display: none;
+}
+
+.custom-select.active .custom-options {
+    display: block;
+}
+
+.custom-option {
+    padding: 12px 16px;
+    /* cursor: pointer; */
+    transition: all 0.2s;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0;
+}
+
+.custom-option:hover {
+    background-color: #f3f3f3;
+}
+
+/* .custom-option.selected {
+    font-size: 14px;
+} */
 
 @media (max-width: 1024px) {
     .filters-bar-container {
         grid-template-columns: repeat(2, 1fr);
         justify-items: center;
-        /* 2 on medium screens */
     }
 }
 
 @media (max-width: 600px) {
     .filters-bar-container {
         grid-template-columns: 1fr;
-        /* 1 on small screens */
     }
 }

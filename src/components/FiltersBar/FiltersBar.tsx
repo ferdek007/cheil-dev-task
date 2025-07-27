@@ -1,5 +1,6 @@
 import './FiltersBar.css'
 import type { Filters, FilterKey } from '../../types/types'
+import { useState } from 'react'
 
 const FILTER_OPTIONS = {
     sortBy: [
@@ -26,13 +27,19 @@ interface Props {
 }
 
 export const FiltersBar = ({ filters, setFilters }: Props) => {
-    const handleFilterChange = (filterName: FilterKey) =>
-        (e: React.ChangeEvent<HTMLSelectElement>) => {
-            setFilters(prev => ({
-                ...prev,
-                [filterName]: e.target.value
-            }));
-        }
+    const [activeDropdown, setActiveDropdown] = useState<FilterKey | null>(null)
+
+    const handleCustomSelectClick = (filterKey: FilterKey) => {
+        setActiveDropdown(activeDropdown === filterKey ? null : filterKey);
+    }
+
+    const handleOptionClick = (filterKey: FilterKey, value: string) => {
+        setFilters(prev => ({
+            ...prev,
+            [filterKey]: value
+        }));
+        setActiveDropdown(null);
+    }
 
     const getFilterLabel = (filterKey: FilterKey): string => {
         switch (filterKey) {
@@ -51,18 +58,27 @@ export const FiltersBar = ({ filters, setFilters }: Props) => {
                     <label htmlFor={`${filterKey}-select`}>
                         {getFilterLabel(filterKey)}:
                     </label>
-                    <br />
-                    <select
-                        id={`${filterKey}-select`}
-                        value={filters[filterKey]}
-                        onChange={handleFilterChange(filterKey)}
-                    >
-                        {FILTER_OPTIONS[filterKey].map(option => (
-                            <option key={option} value={option}>
-                                {option}
-                            </option>
-                        ))}
-                    </select>
+
+                    <div className={`custom-select ${activeDropdown === filterKey ? 'active' : ''}`}>
+                        <div
+                            className="custom-select__trigger"
+                            onClick={() => handleCustomSelectClick(filterKey)}
+                        >
+                            <span>{filters[filterKey]}</span>
+                        </div>
+
+                        <div className="custom-options">
+                            {FILTER_OPTIONS[filterKey].map(option => (
+                                <div
+                                    key={option}
+                                    className={`custom-option ${filters[filterKey] === option ? 'selected' : ''}`}
+                                    onClick={() => handleOptionClick(filterKey, option)}
+                                >
+                                    {option}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>
