@@ -23,3 +23,12 @@ export interface Product {
     };
     image: string;
 }
+
+export type FilterKey = 'sortBy' | 'functions' | 'energyClass' | 'volume';
+
+export interface Filters {
+    sortBy: string;
+    functions: string;
+    energyClass: string;
+    volume: string;
+}

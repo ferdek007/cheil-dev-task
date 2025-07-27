@@ -1,21 +1,5 @@
 import './FiltersBar.css'
-
-interface Props {
-    filters: {
-        sortBy: string;
-        functions: string;
-        energyClass: string;
-        volume: string;
-    };
-    setFilters: React.Dispatch<
-        React.SetStateAction<{
-            sortBy: string;
-            functions: string;
-            energyClass: string;
-            volume: string;
-        }>
-    >;
-}
+import type { Filters, FilterKey } from '../../types/types'
 
 const FILTER_OPTIONS = {
     sortBy: ['Wszystkie', 'Cena', 'Pojemność'],
@@ -27,71 +11,54 @@ const FILTER_OPTIONS = {
         'Wyświetlacz elektroniczny',
     ],
     energyClass: ['Wszystkie', 'A', 'B', 'C', 'D', 'E', 'F'],
-    volume: ['Wszystkie', '9kg', '8kg', '10.5kg'],
-};
+    volume: ['Wszystkie', '8kg', '9kg', '10.5kg'],
+}
+
+interface Props {
+    filters: Filters;
+    setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+}
 
 export const FiltersBar = ({ filters, setFilters }: Props) => {
+    const handleFilterChange = (filterName: FilterKey) =>
+        (e: React.ChangeEvent<HTMLSelectElement>) => {
+            setFilters(prev => ({
+                ...prev,
+                [filterName]: e.target.value
+            }));
+        }
+
+    const getFilterLabel = (filterKey: FilterKey): string => {
+        switch (filterKey) {
+            case 'sortBy': return 'Sortuj po';
+            case 'functions': return 'Funkcje';
+            case 'energyClass': return 'Klasa energetyczna';
+            case 'volume': return 'Pojemność';
+            default: return filterKey;
+        }
+    }
+
     return (
         <div className='filters-bar-container'>
-            <div className='filter-wrapper'>
-                <label htmlFor='sort-by-select'>Sortuj po:</label>
-                <br />
-                <select id='sort-by-select'
-                    value={filters.sortBy}
-                    onChange={(e) => setFilters((f) => ({ ...f, sortBy: e.target.value }))}
-                >
-                    {FILTER_OPTIONS.sortBy.map((opt) => (
-                        <option key={opt} value={opt}>
-                            {opt}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
-            <div className='filter-wrapper'>
-                <label htmlFor='functions-select'>Funkcje:</label>
-                <br />
-                <select id='functions-select'
-                    value={filters.functions}
-                    onChange={(e) => setFilters((f) => ({ ...f, functions: e.target.value }))}
-                >
-                    {FILTER_OPTIONS.functions.map((opt) => (
-                        <option key={opt} value={opt}>
-                            {opt === 'Wszystkie' ? 'Wszystkie' : opt}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
-            <div className='filter-wrapper'>
-                <label htmlFor='energy-class-select'>Klasa energetyczna:</label>
-                <br />
-                <select id='energy-class-select'
-                    value={filters.energyClass}
-                    onChange={(e) => setFilters((f) => ({ ...f, energyClass: e.target.value }))}
-                >
-                    {FILTER_OPTIONS.energyClass.map((opt) => (
-                        <option key={opt} value={opt}>
-                            {opt}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
-            <div className='filter-wrapper'>
-                <label htmlFor='volume-select'>Pojemność:</label>
-                <br />
-                <select id='volume-select'
-                    value={filters.volume}
-                    onChange={(e) => setFilters((f) => ({ ...f, volume: e.target.value }))}
-                >
-                    {FILTER_OPTIONS.volume.map((opt) => (
-                        <option key={opt} value={opt}>
-                            {opt}
-                        </option>
-                    ))}
-                </select>
-            </div>
-        </div >
+            {(Object.keys(FILTER_OPTIONS) as FilterKey[]).map((filterKey) => (
+                <div key={filterKey} className='filter-wrapper'>
+                    <label htmlFor={`${filterKey}-select`}>
+                        {getFilterLabel(filterKey)}:
+                    </label>
+                    <br />
+                    <select
+                        id={`${filterKey}-select`}
+                        value={filters[filterKey]}
+                        onChange={handleFilterChange(filterKey)}
+                    >
+                        {FILTER_OPTIONS[filterKey].map(opt => (
+                            <option key={opt} value={opt}>
+                                {opt}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            ))}
+        </div>
     )
 }

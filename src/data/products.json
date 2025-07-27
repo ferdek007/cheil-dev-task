@@ -38,7 +38,7 @@
         },
         "energyClass": "B",
         "addWashDoor": true,
-        "panelAIControl": true,
+        "panelAIControl": false,
         "inverterDutyMotor": true,
         "electronicDisplay": true,
         "priceStart": "15-09-2022",
@@ -65,7 +65,7 @@
         "addWashDoor": true,
         "panelAIControl": true,
         "inverterDutyMotor": true,
-        "electronicDisplay": true,
+        "electronicDisplay": false,
         "priceStart": "15-09-2022",
         "priceEnd": "21-09-2022",
         "instalments": {
@@ -128,8 +128,8 @@
         "id": 6,
         "name": "Pralka EcoBubble™",
         "code": "WW90T654DLH",
-        "price_pln": 3199.00,
-        "colour": "biała",
+        "price_pln": 3099.00,
+        "colour": "czarna",
         "volume_kg": 8,
         "dimensions": {
             "width_cm": 60,
