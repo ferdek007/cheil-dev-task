@@ -1,3 +1,11 @@
+.feed-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 338px));
@@ -6,6 +14,37 @@
     gap: 16px;
     max-width: 1046px;
     margin: 0 auto;
+}
+
+.show-more-button {
+    width: 118px;
+    height: 20px;
+    color: #007AFF;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 0;
+    transition: all 0.2s ease;
+    font-size: 7px;
+    font-family: inherit;
+}
+
+.show-more-button span {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+.show-more-button::after {
+    content: "▼";
+    transition: transform 0.2s ease;
+}
+
+.show-more-button[aria-expanded="true"]::after {
+    transform: rotate(180deg);
 }
 
 @media (max-width: 1024px) {

@@ -148,5 +148,30 @@
             "amount": 60
         },
         "image": "/images/washer3.png"
+    },
+    {
+        "id": 7,
+        "name": "Pralka EcoBubble™",
+        "code": "WW10T654DLH",
+        "price_pln": 3199.00,
+        "colour": "biała",
+        "volume_kg": 10.5,
+        "dimensions": {
+            "width_cm": 60,
+            "height_cm": 85,
+            "length_cm": 55
+        },
+        "energyClass": "E",
+        "addWashDoor": true,
+        "panelAIControl": true,
+        "inverterDutyMotor": true,
+        "electronicDisplay": true,
+        "priceStart": "15-09-2022",
+        "priceEnd": "21-09-2022",
+        "instalments": {
+            "rate": 53.31,
+            "amount": 60
+        },
+        "image": "/images/washer2.png"
     }
 ]

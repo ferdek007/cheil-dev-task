@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { type Product } from '../../types/types'
 import { ProductCard } from '../ProductCard/ProductCard'
 import './Feed.css'
@@ -9,16 +10,32 @@ interface FeedProps {
 }
 
 export const Feed = ({ products, selectedProducts, toggleSelect }: FeedProps) => {
+    const [showAll, setShowAll] = useState<boolean>(false);
+    const initialProductsCount = 6;
+    const productsToShow = showAll ? products : products.slice(0, initialProductsCount);
+
     return (
-        <div className='products-grid'>
-            {products.map((product) => (
-                <ProductCard
-                    key={product.id}
-                    product={product}
-                    selected={selectedProducts.includes(product.id)}
-                    toggleSelect={toggleSelect}
-                />
-            ))}
+        <div className='feed-container'>
+            <div className='products-grid'>
+                {productsToShow.map((product) => (
+                    <ProductCard
+                        key={product.id}
+                        product={product}
+                        selected={selectedProducts.includes(product.id)}
+                        toggleSelect={toggleSelect}
+                    />
+                ))}
+            </div>
+
+            {products.length > initialProductsCount && (
+                <button
+                    className='show-more-button'
+                    onClick={() => setShowAll(!showAll)}
+                    aria-expanded={showAll}
+                >
+                    <span>{showAll ? 'Pokaż mniej' : 'Pokaż więcej'}</span>
+                </button>
+            )}
         </div>
     )
 }

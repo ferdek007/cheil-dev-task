@@ -61,13 +61,13 @@ export const FiltersBar = ({ filters, setFilters }: Props) => {
 
                     <div className={`custom-select ${activeDropdown === filterKey ? 'active' : ''}`}>
                         <div
-                            className="custom-select__trigger"
+                            className='custom-select__trigger'
                             onClick={() => handleCustomSelectClick(filterKey)}
                         >
                             <span>{filters[filterKey]}</span>
                         </div>
 
-                        <div className="custom-options">
+                        <div className='custom-options'>
                             {FILTER_OPTIONS[filterKey].map(option => (
                                 <div
                                     key={option}
