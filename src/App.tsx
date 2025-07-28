@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react'
 import productsData from './data/products.json'
+import type { Product, Filters } from './types/types'
 import { Header } from './components/Header/Header'
 import { SearchBar } from './components/SearchBar/SearchBar'
 import { FiltersBar } from './components/FiltersBar/FiltersBar'
 import { Feed } from './components/Feed/Feed'
-import type { Product, Filters } from './types/types'
+import { Footer } from './components/Footer/Footer'
 
 const FUNCTION_PROPERTY_MAP: Record<string, keyof Product> = {
   'Drzwi AddWash': 'addWashDoor',
@@ -80,6 +81,7 @@ export const App = () => {
           toggleSelect={toggleSelect}
         />
       </div>
+      <Footer />
     </div>
   )
 }

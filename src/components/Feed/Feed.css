@@ -30,6 +30,7 @@
     transition: all 0.2s ease;
     font-size: 7px;
     font-family: inherit;
+    margin-top: 5px;
 }
 
 .show-more-button span {

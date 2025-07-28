@@ -10,9 +10,11 @@ interface FeedProps {
 }
 
 export const Feed = ({ products, selectedProducts, toggleSelect }: FeedProps) => {
-    const [showAll, setShowAll] = useState<boolean>(false);
-    const initialProductsCount = 6;
-    const productsToShow = showAll ? products : products.slice(0, initialProductsCount);
+    const [showAll, setShowAll] = useState<boolean>(false)
+    const initialProductsCount: number = 6
+    const productsToShow: Product[] = showAll
+        ? products
+        : products.slice(0, initialProductsCount)
 
     return (
         <div className='feed-container'>
