@@ -23,12 +23,12 @@ export const ProductCard = ({ product, selected, toggleSelect }: Props) => {
                     {[
                         product.code ?? 'N/A',
                         product.name ?? 'N/A',
-                        product.volume_kg ? `${product.volume_kg} kg` : 'N/A',
+                        product.volume_kg ? `${product.volume_kg.toString().replace('.', ',')} kg` : 'N/A',
                         product.colour ?? 'N/A'
                     ].join(', ')}
                 </h3>
                 <div className='description-wrapper'>
-                    <p>Pojemność (kg): <span className='text-bold'>{product.volume_kg ?? 'N/A'}</span></p>
+                    <p>Pojemność (kg): <span className='text-bold'>{product.volume_kg.toString().replace('.', ',') ?? 'N/A'}</span></p>
                     <p>
                         Wymiary (GxSxW): <span className='text-bold'>
                             {product.dimensions ? (
@@ -74,7 +74,7 @@ export const ProductCard = ({ product, selected, toggleSelect }: Props) => {
                 </div>
                 <span className='instalments-label'>
                     {product.instalments ?
-                        `${product.instalments.rate ?? 'N/A'} zł x ${product.instalments.amount ?? 'N/A'} rat` : 'N/A'
+                        `${product.instalments.rate.toString().replace('.', ',') ?? 'N/A'} zł x ${product.instalments.amount ?? 'N/A'} rat` : 'N/A'
                     }
                 </span>
             </div>
