@@ -12,7 +12,7 @@
             "length_cm": 55
         },
         "energyClass": "A",
-        "addWashDoor": true,
+        "addWashDoor": false,
         "panelAIControl": true,
         "inverterDutyMotor": true,
         "electronicDisplay": true,
@@ -28,7 +28,7 @@
         "id": 2,
         "name": "Pralka EcoBubble™",
         "code": "WW10T654DLH",
-        "price_pln": 3199.00,
+        "price_pln": 3299.00,
         "colour": "biała",
         "volume_kg": 10.5,
         "dimensions": {
@@ -38,13 +38,13 @@
         },
         "energyClass": "B",
         "addWashDoor": true,
-        "panelAIControl": false,
-        "inverterDutyMotor": true,
+        "panelAIControl": true,
+        "inverterDutyMotor": false,
         "electronicDisplay": true,
         "priceStart": "15-09-2022",
         "priceEnd": "21-09-2022",
         "instalments": {
-            "rate": 53.31,
+            "rate": 54.98,
             "amount": 60
         },
         "image": "/images/washer2.png"
@@ -53,7 +53,7 @@
         "id": 3,
         "name": "Pralka EcoBubble™",
         "code": "WW90T654DLH",
-        "price_pln": 3199.99,
+        "price_pln": 3399.99,
         "colour": "biała",
         "volume_kg": 8,
         "dimensions": {
@@ -65,11 +65,11 @@
         "addWashDoor": true,
         "panelAIControl": true,
         "inverterDutyMotor": true,
-        "electronicDisplay": false,
+        "electronicDisplay": true,
         "priceStart": "15-09-2022",
         "priceEnd": "21-09-2022",
         "instalments": {
-            "rate": 53.31,
+            "rate": 56.66,
             "amount": 60
         },
         "image": "/images/washer2.png"
@@ -78,7 +78,7 @@
         "id": 4,
         "name": "Pralka QuickDrive™",
         "code": "WW90T754ABT",
-        "price_pln": 3199.00,
+        "price_pln": 3499.00,
         "colour": "biała",
         "volume_kg": 9,
         "dimensions": {
@@ -94,7 +94,7 @@
         "priceStart": "15-09-2022",
         "priceEnd": "21-09-2022",
         "instalments": {
-            "rate": 53.31,
+            "rate": 58.31,
             "amount": 60
         },
         "image": "/images/washer1.png"
@@ -103,7 +103,7 @@
         "id": 5,
         "name": "Pralka EcoBubble™",
         "code": "WW10T654DLH",
-        "price_pln": 3199.00,
+        "price_pln": 3599.00,
         "colour": "biała",
         "volume_kg": 10.5,
         "dimensions": {
@@ -119,8 +119,8 @@
         "priceStart": "15-09-2022",
         "priceEnd": "21-09-2022",
         "instalments": {
-            "rate": 53.31,
-            "amount": 60
+            "rate": 51.41,
+            "amount": 70
         },
         "image": "/images/washer2.png"
     },
@@ -128,7 +128,7 @@
         "id": 6,
         "name": "Pralka EcoBubble™",
         "code": "WW90T654DLH",
-        "price_pln": 3099.00,
+        "price_pln": 3099.99,
         "colour": "czarna",
         "volume_kg": 8,
         "dimensions": {
@@ -144,16 +144,116 @@
         "priceStart": "15-09-2022",
         "priceEnd": "21-09-2022",
         "instalments": {
-            "rate": 53.31,
-            "amount": 60
+            "rate": 61.99,
+            "amount": 50
         },
         "image": "/images/washer3.png"
     },
     {
         "id": 7,
+        "name": "Pralka QuickDrive™",
+        "code": "WW90T754ABT",
+        "price_pln": 3199.00,
+        "colour": "biała",
+        "volume_kg": 9,
+        "dimensions": {
+            "width_cm": 60,
+            "height_cm": 85,
+            "length_cm": 55
+        },
+        "energyClass": "A",
+        "addWashDoor": false,
+        "panelAIControl": true,
+        "inverterDutyMotor": true,
+        "electronicDisplay": true,
+        "priceStart": "15-09-2022",
+        "priceEnd": "21-09-2022",
+        "instalments": {
+            "rate": 53.31,
+            "amount": 60
+        },
+        "image": "/images/washer1.png"
+    },
+    {
+        "id": 8,
         "name": "Pralka EcoBubble™",
         "code": "WW10T654DLH",
-        "price_pln": 3199.00,
+        "price_pln": 3299.00,
+        "colour": "biała",
+        "volume_kg": 10.5,
+        "dimensions": {
+            "width_cm": 60,
+            "height_cm": 85,
+            "length_cm": 55
+        },
+        "energyClass": "B",
+        "addWashDoor": true,
+        "panelAIControl": false,
+        "inverterDutyMotor": true,
+        "electronicDisplay": true,
+        "priceStart": "15-09-2022",
+        "priceEnd": "21-09-2022",
+        "instalments": {
+            "rate": 54.98,
+            "amount": 60
+        },
+        "image": "/images/washer2.png"
+    },
+    {
+        "id": 9,
+        "name": "Pralka EcoBubble™",
+        "code": "WW90T654DLH",
+        "price_pln": 3399.99,
+        "colour": "biała",
+        "volume_kg": 8,
+        "dimensions": {
+            "width_cm": 60,
+            "height_cm": 85,
+            "length_cm": 55
+        },
+        "energyClass": "C",
+        "addWashDoor": true,
+        "panelAIControl": true,
+        "inverterDutyMotor": false,
+        "electronicDisplay": true,
+        "priceStart": "15-09-2022",
+        "priceEnd": "21-09-2022",
+        "instalments": {
+            "rate": 56.66,
+            "amount": 60
+        },
+        "image": "/images/washer2.png"
+    },
+    {
+        "id": 10,
+        "name": "Pralka QuickDrive™",
+        "code": "WW90T754ABT",
+        "price_pln": 3499.00,
+        "colour": "biała",
+        "volume_kg": 9,
+        "dimensions": {
+            "width_cm": 60,
+            "height_cm": 85,
+            "length_cm": 55
+        },
+        "energyClass": "D",
+        "addWashDoor": true,
+        "panelAIControl": true,
+        "inverterDutyMotor": true,
+        "electronicDisplay": false,
+        "priceStart": "15-09-2022",
+        "priceEnd": "21-09-2022",
+        "instalments": {
+            "rate": 58.31,
+            "amount": 60
+        },
+        "image": "/images/washer1.png"
+    },
+    {
+        "id": 11,
+        "name": "Pralka EcoBubble™",
+        "code": "WW10T654DLH",
+        "price_pln": 3599.00,
         "colour": "biała",
         "volume_kg": 10.5,
         "dimensions": {
@@ -162,16 +262,41 @@
             "length_cm": 55
         },
         "energyClass": "E",
+        "addWashDoor": false,
+        "panelAIControl": false,
+        "inverterDutyMotor": true,
+        "electronicDisplay": true,
+        "priceStart": "15-09-2022",
+        "priceEnd": "21-09-2022",
+        "instalments": {
+            "rate": 51.41,
+            "amount": 70
+        },
+        "image": "/images/washer2.png"
+    },
+    {
+        "id": 12,
+        "name": "Pralka EcoBubble™",
+        "code": "WW90T654DLH",
+        "price_pln": 3099.00,
+        "colour": "czarna",
+        "volume_kg": 8,
+        "dimensions": {
+            "width_cm": 60,
+            "height_cm": 85,
+            "length_cm": 55
+        },
+        "energyClass": "F",
         "addWashDoor": true,
         "panelAIControl": true,
-        "inverterDutyMotor": true,
+        "inverterDutyMotor": false,
         "electronicDisplay": false,
         "priceStart": "15-09-2022",
         "priceEnd": "21-09-2022",
         "instalments": {
-            "rate": 53.31,
-            "amount": 60
+            "rate": 61.98,
+            "amount": 50
         },
-        "image": "/images/washer2.png"
+        "image": "/images/washer3.png"
     }
 ]
