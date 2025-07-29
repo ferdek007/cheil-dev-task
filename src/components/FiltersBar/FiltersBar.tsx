@@ -1,24 +1,38 @@
 import './FiltersBar.css'
 import type { Filters, FilterKey } from '../../types/types'
+import { SORT_OPTIONS, FUNCTION_OPTIONS, ENERGY_CLASS_OPTIONS, VOLUME_OPTIONS } from '../../constants'
 import { useState } from 'react'
 
 const FILTER_OPTIONS = {
     sortBy: [
-        'Wszystkie',
-        'Cena rosnąco',
-        'Cena malejąco',
-        'Pojemność rosnąco',
-        'Pojemność malejąco'
+        SORT_OPTIONS.ALL,
+        SORT_OPTIONS.PRICE_ASC,
+        SORT_OPTIONS.PRICE_DESC,
+        SORT_OPTIONS.VOLUME_ASC,
+        SORT_OPTIONS.VOLUME_DESC,
     ] as const,
     functions: [
-        'Wszystkie',
-        'Drzwi AddWash',
-        'Panel AI Control',
-        'Silnik inwerterowy',
-        'Wyświetlacz elektroniczny',
+        FUNCTION_OPTIONS.ALL,
+        FUNCTION_OPTIONS.ADD_WASH_DOOR,
+        FUNCTION_OPTIONS.PANEL_AI_CONTROL,
+        FUNCTION_OPTIONS.INVERTER_DUTY_MOTOR,
+        FUNCTION_OPTIONS.ELECTRONIC_DISPLAY,
     ] as const,
-    energyClass: ['Wszystkie', 'A', 'B', 'C', 'D', 'E', 'F'] as const,
-    volume: ['Wszystkie', '8kg', '9kg', '10.5kg'] as const,
+    energyClass: [
+        ENERGY_CLASS_OPTIONS.ALL,
+        ENERGY_CLASS_OPTIONS.A,
+        ENERGY_CLASS_OPTIONS.B,
+        ENERGY_CLASS_OPTIONS.C,
+        ENERGY_CLASS_OPTIONS.D,
+        ENERGY_CLASS_OPTIONS.E,
+        ENERGY_CLASS_OPTIONS.F,
+    ] as const,
+    volume: [
+        VOLUME_OPTIONS.ALL,
+        VOLUME_OPTIONS.KG_8,
+        VOLUME_OPTIONS.KG_9,
+        VOLUME_OPTIONS.KG_10_5,
+    ] as const,
 }
 
 interface Props {

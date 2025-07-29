@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import productsData from './data/products.json'
+import { SORT_OPTIONS, FUNCTION_OPTIONS, ENERGY_CLASS_OPTIONS, VOLUME_OPTIONS } from './constants'
 import type { Product, Filters } from './types/types'
 import { Header } from './components/Header/Header'
 import { SearchBar } from './components/SearchBar/SearchBar'
@@ -8,19 +9,19 @@ import { Feed } from './components/Feed/Feed'
 import { Footer } from './components/Footer/Footer'
 
 const FUNCTION_PROPERTY_MAP: Record<string, keyof Product> = {
-  'Drzwi AddWash': 'addWashDoor',
-  'Panel AI Control': 'panelAIControl',
-  'Silnik inwerterowy': 'inverterDutyMotor',
-  'Wyświetlacz elektroniczny': 'electronicDisplay'
+  [FUNCTION_OPTIONS.ADD_WASH_DOOR]: 'addWashDoor',
+  [FUNCTION_OPTIONS.PANEL_AI_CONTROL]: 'panelAIControl',
+  [FUNCTION_OPTIONS.INVERTER_DUTY_MOTOR]: 'inverterDutyMotor',
+  [FUNCTION_OPTIONS.ELECTRONIC_DISPLAY]: 'electronicDisplay'
 }
 
 export const App = () => {
   const [search, setSearch] = useState<string>('')
   const [filters, setFilters] = useState<Filters>({
-    sortBy: 'Wszystkie',
-    functions: 'Wszystkie',
-    energyClass: 'Wszystkie',
-    volume: 'Wszystkie',
+    sortBy: SORT_OPTIONS.ALL,
+    functions: FUNCTION_OPTIONS.ALL,
+    energyClass: ENERGY_CLASS_OPTIONS.ALL,
+    volume: VOLUME_OPTIONS.ALL,
   })
   const [selectedProducts, setSelectedProducts] = useState<number[]>([])
 
@@ -31,13 +32,13 @@ export const App = () => {
         .toLowerCase()
         .includes(search.toLowerCase());
 
-      const matchesFunction = filters.functions === 'Wszystkie' ||
+      const matchesFunction = filters.functions === FUNCTION_OPTIONS.ALL ||
         product[FUNCTION_PROPERTY_MAP[filters.functions]];
 
-      const matchesEnergy = filters.energyClass === 'Wszystkie' ||
+      const matchesEnergy = filters.energyClass === ENERGY_CLASS_OPTIONS.ALL ||
         product.energyClass === filters.energyClass;
 
-      const matchesVolume = filters.volume === 'Wszystkie' ||
+      const matchesVolume = filters.volume === VOLUME_OPTIONS.ALL ||
         product.volume_kg === parseFloat(filters.volume.replace('kg', ''));
 
       return matchesSearch && matchesFunction && matchesEnergy && matchesVolume;
@@ -45,13 +46,13 @@ export const App = () => {
 
     // Sorting logic
     switch (filters.sortBy) {
-      case 'Cena rosnąco':
+      case SORT_OPTIONS.PRICE_ASC:
         return [...filtered].sort((a, b) => a.price_pln - b.price_pln)
-      case 'Cena malejąco':
+      case SORT_OPTIONS.PRICE_DESC:
         return [...filtered].sort((a, b) => b.price_pln - a.price_pln)
-      case 'Pojemność rosnąco':
+      case SORT_OPTIONS.VOLUME_ASC:
         return [...filtered].sort((a, b) => a.volume_kg - b.volume_kg)
-      case 'Pojemność malejąco':
+      case SORT_OPTIONS.VOLUME_DESC:
         return [...filtered].sort((a, b) => b.volume_kg - a.volume_kg)
       default:
         return filtered // No sorting
